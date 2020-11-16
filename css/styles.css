@@ -569,7 +569,7 @@ a:active {
 
 @supports not (background-attachment: fixed) {
   .angebote {
-    position: fixed;
+    background-image: linear-gradient(to bottom, #A4979D, #CCB323);
   }
 }
 
