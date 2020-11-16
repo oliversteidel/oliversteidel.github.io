@@ -299,7 +299,7 @@ a:active {
 
 @media only screen and (min-width: 50rem) {
   .hero {
-    background-image: url(images/klippe.jpg);
+    background-image: url(../images/klippe.jpg);
   }
 }
 
@@ -565,6 +565,12 @@ a:active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@supports not (background-attachment: fixed) {
+  .angebote {
+    position: fixed;
+  }
 }
 
 .angebote__headline {
