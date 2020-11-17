@@ -267,6 +267,7 @@ a:active {
 /* --- END NAVBAR --- */
 /* --- START HERO PAGE --- */
 .hero {
+  width: 100vw;
   height: 100vh;
   padding-top: 4.6875rem;
   background-image: url(../images/klippeHoch.jpg);
@@ -299,7 +300,7 @@ a:active {
 
 @media only screen and (min-width: 50rem) {
   .hero {
-    background-image: url(../images/klippe.jpg);
+    background-image: url(../../images/klippe.jpg);
   }
 }
 
@@ -569,6 +570,7 @@ a:active {
 
 @supports not (background-attachment: fixed) {
   .angebote {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#A4979D), to(#CCB323));
     background-image: linear-gradient(to bottom, #A4979D, #CCB323);
   }
 }

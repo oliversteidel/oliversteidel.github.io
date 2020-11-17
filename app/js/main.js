@@ -22,11 +22,19 @@ $(document).ready(function () {
             
             // nav__btn animation start   
             $('.nav__btn-container').removeClass('open');
-
         }
-
     });
 
-
-
+    $('.nav__link').click(function() {
+        if(navOpen) {
+            for (var i = 2; i <= 5; i++) {
+                $('.link' + i).css('transform', 'translateY(0)');
+            };
+            $('.nav__link').css('opacity', '0');
+            navOpen = false;
+            
+            // nav__btn animation start   
+            $('.nav__btn-container').removeClass('open');
+        }
+    });
 });
