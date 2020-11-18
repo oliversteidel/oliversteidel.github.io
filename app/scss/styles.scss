@@ -593,9 +593,42 @@
         @include flex-center(column);
     }
 
-    .impressum,
-    .datenschutz {
+    .impressum-link,
+    .datenschutz-link {
         margin-bottom: 1rem;
         color: $primaryColor;
     }
 }
+
+.impressum, .datenschutz {
+    background: $bgColor;
+    color: $primaryColor;
+    padding: 2rem 10vw 2rem 10vw;
+
+    a {
+        text-decoration: underline;
+        font-weight: 400;
+    }
+
+    h1 {
+        @include headline;
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+        text-align: left;
+    }
+
+    h2, h3, h4 {
+        @include sub-headline;
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+        text-align: left;
+        
+    }
+
+    p {
+        @include paragraph;
+        margin-bottom: 1rem;
+         
+    }
+} 
+

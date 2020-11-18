@@ -292,6 +292,12 @@ a:active {
           justify-content: space-evenly;
 }
 
+@supports not (background-attachment: fixed) {
+  .hero {
+    background-attachment: unset;
+  }
+}
+
 @media only screen and (max-height: 35.625rem) {
   .hero {
     height: 100%;
@@ -570,8 +576,7 @@ a:active {
 
 @supports not (background-attachment: fixed) {
   .angebote {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#A4979D), to(#CCB323));
-    background-image: linear-gradient(to bottom, #A4979D, #CCB323);
+    background-attachment: unset;
   }
 }
 
@@ -909,9 +914,45 @@ a:active {
           align-items: center;
 }
 
-.footer .impressum,
-.footer .datenschutz {
+.footer .impressum-link,
+.footer .datenschutz-link {
   margin-bottom: 1rem;
   color: #FFFFE0;
+}
+
+.impressum, .datenschutz {
+  background: #343A40;
+  color: #FFFFE0;
+  padding: 2rem 10vw 2rem 10vw;
+}
+
+.impressum a, .datenschutz a {
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+.impressum h1, .datenschutz h1 {
+  font-size: clamp(1.5rem, 2.3vw, 1.75rem);
+  font-weight: 300;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  text-align: left;
+}
+
+.impressum h2, .impressum h3, .impressum h4, .datenschutz h2, .datenschutz h3, .datenschutz h4 {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 300;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.impressum p, .datenschutz p {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-weight: 300;
+  text-align: justify;
+  margin-bottom: 1rem;
 }
 /*# sourceMappingURL=styles.css.map */

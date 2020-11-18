@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Coachings und Trainings fuer Job und Alltag. Erreiche Deine Ziele,
+    nachhaltig und wirksam, durch ein Coaching nach dem St. Galler Coaching Modell. ">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Roboto:wght@300;400;500&display=swap"
@@ -24,7 +26,7 @@
                 <div class="nav__brand">Judith Max Consulting</div>
             </a>
             <div class="nav__links-container hide">
-                <a href="#hero" class="nav__link link1">Heimat</a>
+                <a href="#hero" class="nav__link link1">Start</a>
                 <a href="#modell" class="nav__link link2">Coaching Modell</a>
                 <a href="#angebote" class="nav__link link3">Angebote</a>
                 <a href="#about" class="nav__link link4">Über Mich</a>
@@ -43,10 +45,10 @@
             <h1 class="hero__headline">Coachings und Trainings<br> für Job und Alltag</h1>
             <button class="hero__btn"><a href="mailto:consulting.judithmax@gmail.com?subject=Anfrage für Coaching">Kontakt aufnehmen</a></button>
             <div class="hero__sub-headline-container">
-                <h2 class="hero__sub-headline">Persönlichkeitsentwicklung</h2>
-                <h2 class="hero__sub-headline">Karriere Coaching</h2>
-                <h2 class="hero__sub-headline">Life Coaching</h2>
-                <h2 class="hero__sub-headline">Service Training</h2>
+                <a href="#angebote"><h2 class="hero__sub-headline">Persönlichkeitsentwicklung</h2></a>
+                <a href="#lifecoaching"><h2 class="hero__sub-headline">Life Coaching</h2></a>
+                <a href="#karrierecoaching"><h2 class="hero__sub-headline">Karriere Coaching</h2></a>                
+                <a href="#servicetraining"><h2 class="hero__sub-headline">Service Training</h2></a>
             </div>
             <blockquote class="hero__quote">„Ich habe beschlossen, heute glücklich zu sein.<br>
                 Diese Entscheidung macht offenbar den Unterschied.“<br>
@@ -58,11 +60,11 @@
         <!-- ######### START MODELL SECTION ######### -->
 
         <section class="page2 modell" id="modell">
-            <h1 class="modell__headline headline1">Erreiche Deine Ziele,<br>
+            <h2 class="modell__headline headline1">Erreiche Deine Ziele,<br>
                 nachhaltig und wirksam,<br>
                 durch ein Coaching nach dem<br>
                 St. Galler Coaching Modell.
-            </h1>
+            </h2>
             <div class="modell__img-container img1">
                 <img class="modell__img img-p1" src="images/stones.jpg" alt="Steine am Strand">
             </div>
@@ -81,9 +83,9 @@
                     werden freigesetzt und Du erlangst ein besseres Selbstverständnis.
                 </p>
             </div>
-            <h1 class="modell__headline headline2">Coaching
+            <h2 class="modell__headline headline2">Coaching
                 und was das für mich bedeutet.
-            </h1>
+            </h2>
             <h2 class="modell__sub-headline">Dich selbst erkennen - und weiterkommen.</h2>
             <div class="modell__img-container img2">
                 <img class="modell__img img-p2" src="images/gipfel.jpg" alt="Berglandschaft">
@@ -121,7 +123,7 @@
 
         <section class="page3 angebote" id="angebote">
 
-            <h1 class="angebote__headline">Coachings und Trainings<br>für Job und Alltag</h1>
+            <h2 class="angebote__headline">Coachings und Trainings<br>für Job und Alltag</h2>
 
             <div class="flex-container container-persEntw">
                 <div class="angebote__text-container angebote__persEntw">
@@ -142,7 +144,7 @@
                 </div>
             </div>
 
-            <div class="flex-container container-lifeCoaching">
+            <div class="flex-container container-lifeCoaching" id="lifecoaching">
                 <div class="angebote__text-container angebote__lifeCoaching">
                     <h2 class="angebote__title">Life Coaching</h2>
                     <p class="angebote__text">Du gerätst in Situationen, in denen Du das Gefühl hast, Du hättest keine
@@ -160,7 +162,7 @@
                 </div>
             </div>
 
-            <div class="flex-container container-karriereCoaching">
+            <div class="flex-container container-karriereCoaching" id="karrierecoaching">
                 <div class="angebote__text-container angebote__karriereCoaching">
                     <h2 class="angebote__title">Karriere Coaching</h2>
                     <p class="angebote__text">Du willst bei deinen Kollegen einen anderen Eindruck machen als bisher? Du
@@ -177,7 +179,7 @@
                 </div>
             </div>
 
-            <div class="flex-container container-gast">
+            <div class="flex-container container-gast" id="servicetraining">
                 <div class="angebote__text-container angebote__gast">
                     <h2 class="angebote__title">Ein Gast - Was nun?</h2>
                     <p class="angebote__text"> Ein Exkurs zu Körpersprache, Servicegedanke und Kommunikation.<br>
@@ -280,8 +282,8 @@
             <p class="copyright">copyright &copy Judith Max Consulting</p>
             <p class="madeby">Webdesign von Oliver Steidel / os.webdesign</p>
             <div class="impressum-links">
-                <a class="impressum" href="">Impressum</a>
-                <a class="datenschutz" href="">Datenschutzerklährung</a>
+                <a class="impressum-link" href="impressum.html" target="_blank">Impressum</a>
+                <a class="datenschutz-link" href="datenschutzerklaehrung.html" target="_blank">Datenschutzerklährung</a>
             </div>
 
         </footer>
@@ -293,8 +295,8 @@
 
 
     </div>
-    <script src="../app/js/main.js"></script>
-    <script src="../app/js/intersectionObserver.js"></script>
+    <script src="app/js/main.js"></script>
+    <script src="app/js/intersectionObserver.js"></script>
 </body>
 
 </html>
