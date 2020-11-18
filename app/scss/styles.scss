@@ -165,6 +165,10 @@
     @include flex-center(column);
     justify-content: space-evenly;
 
+    @supports not (background-attachment: fixed) {
+        background-attachment: unset;
+    }
+
     @media only screen and (max-height: 35.625rem) {
         height: 100%;
     }
@@ -362,7 +366,7 @@
     @include flex-center(column);
 
     @supports not (background-attachment: fixed) {
-        background-image: linear-gradient(to bottom, #A4979D, #CCB323);
+        background-attachment: unset;
     }
 
     &__headline {

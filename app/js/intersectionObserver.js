@@ -1,10 +1,10 @@
 $(document).ready(function () {
 
-    function setBorder(getId) {
+    function highlight(getId) {
         $('.link' + getId).css('font-weight', '500');        
     }
 
-    function clearBorder(getId) {
+    function regular(getId) {
         $('.link' + getId).css('font-weight', '300');        
     }
 
@@ -23,9 +23,9 @@ $(document).ready(function () {
         entries.forEach(entry => {
 
             if (entry.isIntersecting) {
-                setBorder(entry.target.classList[0].charAt(4));
+                highlight(entry.target.classList[0].charAt(4));
             } else {
-                clearBorder(entry.target.classList[0].charAt(4));
+                regular(entry.target.classList[0].charAt(4));
             }
         })
     }, options);
