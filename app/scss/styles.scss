@@ -202,8 +202,8 @@
     }
 
     &__btn:hover {
-        background-color: $primaryColor;       
-        box-shadow: 0 0 5px $primaryColor;
+        background-color: $btnColor;       
+        box-shadow: 0 0 5px $btnColor; 
     }
 
     &__btn:hover a {
@@ -367,6 +367,7 @@
 
     @supports not (background-attachment: fixed) {
         background-attachment: unset;
+        background-repeat: repeat-y;
     }
 
     &__headline {
@@ -563,7 +564,14 @@
     .fab {
         font-size: 3rem;
         color: $primaryColor;
-        position: relative;
+        position: relative;        
+    }
+
+    @keyframes pulse {
+        from {transform: scale(1);}
+        to {transform: scale(1.3);}
+        
+        
     }
     
     .fab::after {
@@ -576,11 +584,12 @@
         border: 1px solid $primaryColor;     
         border-radius: 5px;
         transform-origin: center;
-        transition: transform .3s ease-in;
+        
     }
 
     .fab:hover::after {
-        transform: scale(1.3);
+        // transform: scale(1.3);
+        animation: pulse 0.8s infinite;
     }
 
     p {
