@@ -18,7 +18,7 @@
     z-index: 5;
 
     &__logo-wrapper {
-        @include flex-center(row);
+        @include flex-center(row); 
     }
 
     &__logo {
@@ -144,6 +144,10 @@
         @media only screen and (min-width: 45rem) {
             width: 90%;
         }
+    }
+
+    .active {
+        font-weight: 500;
     }
 }
 

@@ -264,6 +264,10 @@ a:active {
   }
 }
 
+.nav .active {
+  font-weight: 500;
+}
+
 /* --- END NAVBAR --- */
 /* --- START HERO PAGE --- */
 .hero {
