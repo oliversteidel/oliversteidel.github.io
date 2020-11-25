@@ -68,4 +68,69 @@ $(document).ready(function () {
             }
         })
     })
+
+    //turn animation for angebote__persEntw and rotator-persEntw
+    $('.turn-btn-persEntw').click(function () {        
+        $('.angebote__persEntw').addClass('rotated-back');
+        $('.rotator-persEntw').removeClass('rotated-back');
+        $('.rotator-persEntw').addClass('rotated-front');
+    });
+
+    $('.back-persEntw').click(function () {
+        $('.angebote__persEntw').removeClass('rotated-back');        
+        $('.rotator-persEntw').removeClass('rotated-front');
+        $('.rotator-persEntw').addClass('rotated-back');
+    });
+
+    //turn animation for angebote__lifeCoaching and rotator-lifeCoaching
+    $('.turn-btn-lifeCoaching').click(function () {        
+        $('.angebote__lifeCoaching').addClass('rotated-back');
+        $('.rotator-lifeCoaching').removeClass('rotated-back');
+        $('.rotator-lifeCoaching').addClass('rotated-front');
+    });
+
+    $('.back-lifeCoaching').click(function () {
+        $('.angebote__lifeCoaching').removeClass('rotated-back');        
+        $('.rotator-lifeCoaching').removeClass('rotated-front');
+        $('.rotator-lifeCoaching').addClass('rotated-back');
+    });
+
+    //turn animation for angebote__karriereCoaching and rotator-karriereCoaching
+    $('.turn-btn-karriereCoaching').click(function () {        
+        $('.angebote__karriereCoaching').addClass('rotated-back');
+        $('.rotator-karriereCoaching').removeClass('rotated-back');
+        $('.rotator-karriereCoaching').addClass('rotated-front');
+    });
+
+    $('.back-karriereCoaching').click(function () {
+        $('.angebote__karriereCoaching').removeClass('rotated-back');        
+        $('.rotator-karriereCoaching').removeClass('rotated-front');
+        $('.rotator-karriereCoaching').addClass('rotated-back');
+    });
+
+    //turn animation for angebote__gast and rotator-gast
+    $('.turn-btn-gast').click(function () {        
+        $('.angebote__gast').addClass('rotated-back');
+        $('.rotator-gast').removeClass('rotated-back');
+        $('.rotator-gast').addClass('rotated-front');
+    });
+
+    $('.back-gast').click(function () {
+        $('.angebote__gast').removeClass('rotated-back');        
+        $('.rotator-gast').removeClass('rotated-front');
+        $('.rotator-gast').addClass('rotated-back');
+    });
+
+    //turn animation for angebote__spirits and rotator-spirits
+    $('.turn-btn-spirits').click(function () {        
+        $('.angebote__spirits').addClass('rotated-back');
+        $('.rotator-spirits').removeClass('rotated-back');
+        $('.rotator-spirits').addClass('rotated-front');
+    });
+
+    $('.back-spirits').click(function () {
+        $('.angebote__spirits').removeClass('rotated-back');        
+        $('.rotator-spirits').removeClass('rotated-front');
+        $('.rotator-spirits').addClass('rotated-back');
+    });
 });
