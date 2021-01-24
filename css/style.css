@@ -260,19 +260,15 @@ header {
 
 @-webkit-keyframes pulse {
   from {
-    width: 0%;
-    height: 0%; }
+    opacity: 0; }
   to {
-    width: 100%;
-    height: 100%; } }
+    opacity: 1; } }
 
 @keyframes pulse {
   from {
-    width: 0%;
-    height: 0%; }
+    opacity: 0; }
   to {
-    width: 100%;
-    height: 100%; } }
+    opacity: 1; } }
 
 .winner::after {
   content: "";
@@ -281,8 +277,8 @@ header {
   border-radius: 50%;
   -webkit-box-shadow: 0 0 0 20px rgba(250, 250, 250, 0.07), 0 0 0 50px rgba(250, 250, 250, 0.05), 0 0 0 100px rgba(250, 250, 250, 0.03);
           box-shadow: 0 0 0 20px rgba(250, 250, 250, 0.07), 0 0 0 50px rgba(250, 250, 250, 0.05), 0 0 0 100px rgba(250, 250, 250, 0.03);
-  -webkit-animation: pulse 1s infinite alternate;
-          animation: pulse 1s infinite alternate;
+  -webkit-animation: pulse 1s 5 alternate;
+          animation: pulse 1s 5 alternate;
   position: absolute;
   z-index: -1; }
 
@@ -323,7 +319,7 @@ header {
 
 .btn-container {
   position: absolute;
-  bottom: 3.4375rem;
+  bottom: 2rem;
   left: 0;
   width: 100%;
   height: 2.625rem; }
@@ -360,7 +356,8 @@ header {
   width: 100vw;
   height: 100vh;
   padding: 5rem 1rem;
-  background: #e6e6e6; }
+  background: #e6e6e6;
+  z-index: 100; }
   @media only screen and (min-width: 47.5rem) {
     .rules-modal {
       width: 27rem;
