@@ -1,164 +1,184 @@
+/* 
+   1.   player selects hand
+   1.1. set var "score" to 0
+   1.2. store player choise in var (hand--paper || hand--scissors || hand--rock)
+        and store img-source in an other var
+   1.3. target class "choose", set display: none
+   1.4. target class "game", set display: flex
+
+   2.   get players choise
+   2.1. target class "hand--human" and add class (hand--paper || hand--scissors || hand--rock)
+   2.2. target class "hand-img--human" add source
+
+   3.   get npc's choise (random)   
+   3.1. target class "hand--npc" add class (hand--paper || hand--scissors || hand--rock) and remove class "wait"
+   3.2. target class "hand-inner--npc" set visibility: visible
+   3.2. target class "hand-img--npc" add source 
+
+   4.   check who is winner
+   4.1. target class "result" set display: flex
+   4.2. target class "result__title" set innerHtml to (you win || you lose)
+   4.3. target class ("hand--human" || "hand--npc" based on who wins) add class "winner"
+   4.4. if player wins - increment var "score"; target class "score__number" set innerHtml = var "score"
+
+   5.   press "result__btn"
+   5.1. target class "game", set display: none
+   5.2. target class "result" set display: none
+   5.3. target class "choose", set display: flex
+   5.1. set all changed elements to default
+
+   6.   press "rules-btn"
+   6.1. show modal "rules"
+   6.2. press "rules-btn--close"
+   6.3. hide modal "rules"
+
+
+
+*/
+
+
 $(document).ready(function () {
 
-    //nav visibility animation on mobile
-    var navOpen = false;
+   const scoreDisplay = $('.score__number');
+   const handSelectors = $('.choose__hand');
+   const selectionScreen = $('.choose');
+   const gameScreen = $('.game');
+   const handHuman = $('.hand--human');
+   const handHumanImg = $('.hand-img--human');
+   const handNpc = $('.hand--npc');
+   const handNpcImg = $('.hand-img--npc');
+   const btnPlayAgain = $('.result__btn');
+   const btnRules = $('.rules-btn');
+   const btnRulesClose = $('.close-btn');
 
-    //transform Burger Icon to cross
-    const burgerOpen = () => {
-        $('.burger-menu__line--middle').css('opacity', '0');
-        $('.burger-menu__line--top').css('transform', 'translateY(10px) rotate(45deg)');
-        $('.burger-menu__line--bottom').css('transform', 'translateY(-10px) rotate(-45deg');
-    }
 
-    //tranform Burger Icon to default
-    const burgerClose = () => {
-        $('.burger-menu__line--middle').css('opacity', '1');
-        $('.burger-menu__line--top').css('transform', 'rotate(0)');
-        $('.burger-menu__line--bottom').css('transform', 'rotate(0');
-    }
 
-    $('.burger-menu').click(() => {
-        if (!navOpen) {
-            burgerOpen();
-            gsap.to(".nav-container", { duration: 1, ease: "expo.out", x: 0 });
-            navOpen = true;
-        } else {
-            gsap.to(".nav-container", { duration: 0.75, ease: "expo.in", x: '-100%' });
-            burgerClose();
-            navOpen = false;
-        }
-    });
+   const player = {
+      score: 0,
+      choise: "",
+      setChoise: (obj) => {
+         player.choise = obj.classList[1].slice(8);
+      }
+   }
 
-    //close nav when link is clicked
-    $('.nav__link-wrapper').click(() => {
-        if (navOpen) {
-            gsap.to(".nav-container", { duration: 0.75, ease: "expo.out", x: '-100%' });
-            burgerClose();
-            navOpen = false;
-        }
-    })
+   const npc = {
+      choise: "",
+      chooseHand: () => {
+         let randomNum = Math.floor(Math.random() * Math.floor(3));
+         switch (randomNum) {
+            case 0:
+               npc.choise = "hand--paper";
+               break;
+            case 1:
+               npc.choise = "hand--scissors";
+               break;
+            case 2:
+               npc.choise = "hand--rock";
+               break;
+         }
+      }
+   }
 
-    // $('.nav__link-wrapper').mouseout(function() {
-    //     turn = true;
-    // })
+   const getImgSource = (arg) => {
+      switch (arg) {
+         case "hand--paper":
+            return "images/icon-paper.svg";
+         case "hand--scissors":
+            return "images/icon-scissors.svg";
+         case "hand--rock":
+            return "images/icon-rock.svg";
+      }
+   }
 
-    //animation of nav__links
-    $('.nav__link-wrapper').hover(function () {
-        $(this).children(':first').toggleClass('link-up');
-        $(this).children(':last').toggleClass('bottom-down');
-    });
+   const showScore = () => {
+      scoreDisplay.html(player.score.toString());
+   }
 
-    //slideranimation
-    var turnCounter = 1;
-    var removeCounter = 1;
-    var addCounter = 2;
+   const showGameScreen = () => {
+      selectionScreen.css('display', 'none');
+      gameScreen.css('display', 'flex');
+      handHuman.addClass(player.choise);
+      handHumanImg.attr('src', getImgSource(player.choise));
+   }
 
-    const runSlider = () => {
-        removeCounter = turnCounter;
-        if (turnCounter < 5) {
-            addCounter = turnCounter + 1;
-        } else {
-            addCounter = 1;
-        }
+   const showNpcChoise = () => {
+      handNpc.removeClass('wait');
+      handNpc.addClass(npc.choise);
+      $('.hand-inner--npc').css('visibility', 'visible');
+      handNpcImg.attr('src', getImgSource(npc.choise));
+   }
 
-        for (var i = 1; i <= 5; i++) {
-            $(".img" + i).removeClass("pos" + removeCounter);
-            $(".img" + i).addClass("pos" + addCounter);
+   const doesPlayerWin = (human, computer) => {
+      if (human === computer) {
+         return "draw";
+      } else if (human === "hand--paper" && computer === "hand--rock") {
+         return "you win";
+      } else if (human === "hand--paper" && computer === "hand--scissors") {
+         return "you lose";
+      } else if (human === "hand--rock" && computer === "hand--paper") {
+         return "you lose";
+      } else if (human === "hand--rock" && computer === "hand--scissors") {
+         return "you win";
+      } else if (human === "hand--scissors" && computer === "hand--rock") {
+         return "you lose";
+      } else if (human === "hand--scissors" && computer === "hand--paper") {
+         return "you win";
+      }
+   }
 
-            if (removeCounter < 5) {
-                removeCounter++;
-            } else {
-                removeCounter = 1;
-            }
-            if (addCounter < 5) {
-                addCounter++;
-            } else {
-                addCounter = 1;
-            }
-        }
-    }
+   const handleResult = (result) => {
+      $('.result').css('opacity', '1');
+      $('.result__title').html(result);
 
-    setInterval(() => {
-        runSlider();
-        if (turnCounter < 5) {
-            turnCounter++;
-        } else {
-            turnCounter = 1;
-        }
-    }, 4000);
+      if (result === "you lose") {
+         handNpc.addClass('winner');
+      } else if (result === "you win") {
+         handHuman.addClass('winner');
+         player.score++;
+      }
+      showScore();
+   }
 
-    // show selected gallery-image in modal
-    const galleryImgArr = [];
-    var imgPos;
+   const setDefault = () => {
+      gameScreen.css('display', 'none');
+      handHuman.removeClass('winner');
+      handHuman.removeClass(player.choise);
+      handNpc.removeClass('winner');
+      handNpc.removeClass(npc.choise);
+      handNpc.addClass('wait');
+      $('.result__title').html("wait");
+      $('.result').css('opacity', '0');
+      $('.hand-inner--npc').css('visibility', 'hidden');
+      handHumanImg.attr('src', '');
+      handNpcImg.attr('src', '');
+      player.choise = "";
+      npc.choise = "";
+      selectionScreen.css('display', 'flex');
+   }
 
-    const modal = $('.modal'),
-        modalCloseBtn = $('.modal__btn--close'),
-        imgWrapper = $('.modal__img-wrapper');
+   showScore();
 
-    //fill galleryImgArr with src-attr of each image in gallery    
-    for (let i = 1; i <= $('.gallery__img').length; i++) {
-        galleryImgArr.push($('.gallery__img' + i).attr("src"));
-    }
+   handSelectors.click(function () {
+      player.setChoise(this);
+      npc.chooseHand();
+      showGameScreen();
+      setTimeout(showNpcChoise, 2000);
+      setTimeout(handleResult, 2500, doesPlayerWin(player.choise, npc.choise));
+   });
 
-    const nextImg = (num) => {
-        //gsap.to(".currentImg", { duration: 0.75, ease: "expo.out", x: -100, opacity: 0 });
-        imgWrapper.empty();
-        var img = galleryImgArr[num];
-        setImg(img, getImgRatio(img));
-    }
+   btnPlayAgain.click(function () {
+      setDefault();
+   });
 
-    const openModal = () => {
-        modal.removeClass('closed');
-        modal.css('opacity', '1');
-    }
+   btnRules.click(function() {
+      $('.rules-modal').css('display', 'flex');
+   });
 
-    const closeModal = () => {
-        modal.addClass('closed');
-    }
+   btnRulesClose.click(function() {
+      $('.rules-modal').css('display', 'none');
+   });
 
-    //every image has "acr" or "up" for across/upright set in filename
-    const getImgRatio = (attr) => {
-        var imgRatio = attr;
-        let isAcross = /acr/;
-        return isAcross.test(imgRatio);
-    }
 
-    const setImg = (src, ratio) => {
-        if (ratio) {
-            imgWrapper.append('<img src="' + src + '" class="acr currentImg">');
-        } else {
-            imgWrapper.append('<img src="' + src + '" class="up currentImg">');
-        }
-    }
 
-    $('.gallery__img').click(function () {
-        if ($(this).attr("class").length == 26) {
-            imgPos = $(this).attr("class").substr(-1);
-        } else {
-            imgPos = $(this).attr("class").substr(-2);
-        }
 
-        var img = $(this).attr("src");
-        setImg(img, getImgRatio(img));
-        openModal();
-    });
-
-    $('.modal__btn--next').click(function () {
-        if (imgPos < galleryImgArr.length) {
-            nextImg(imgPos);
-            imgPos++;
-        }
-    });
-
-    $('.modal__btn--prev').click(function () {
-        if (imgPos > 1) {
-            nextImg(imgPos - 1);
-            imgPos--;
-        }
-    });
-
-    modalCloseBtn.click(() => {
-        closeModal();
-        imgWrapper.empty();
-    });
 });
