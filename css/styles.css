@@ -14,6 +14,10 @@ html {
   margin: 0;
   padding: 0; }
 
+*:focus {
+  outline: 3px dotted #ffffe0;
+  outline-offset: 2px; }
+
 body {
   overflow-x: hidden;
   height: 100%; }
@@ -45,9 +49,7 @@ a:active {
   background: transparent;
   border: 1px solid #ffffe0;
   border-radius: 5px;
-  font-family: "Roboto", sans-serif;
-  font-size: 1rem;
-  font-weight: 300;
+  font-weight: 400;
   cursor: pointer;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out; }
@@ -56,26 +58,11 @@ a:active {
   font-size: 0.75rem; }
   @media only screen and (min-width: 50rem) {
     .contact-btn {
-      font-size: 0.9rem; } }
+      font-size: 1rem; } }
 
 .btn:hover {
-  background-color: #ffffe0;
-  opacity: 0.75;
-  color: linear-gradient(45deg, #232526, #414345);
-  -webkit-box-shadow: 0 0 5px #ffffe0;
-          box-shadow: 0 0 5px #ffffe0;
+  background-color: RGBA(255, 255, 224, 0.75);
   color: #343a40; }
-
-.btn:hover a {
-  color: #343a40; }
-
-.rotated-back {
-  -webkit-transform: rotateY(0.5turn);
-          transform: rotateY(0.5turn); }
-
-.rotated-front {
-  -webkit-transform: rotateY(1turn);
-          transform: rotateY(1turn); }
 
 @-webkit-keyframes pulse {
   0% {
@@ -157,6 +144,8 @@ a:active {
     @media only screen and (min-width: 45rem) {
       .nav__btn-container {
         display: none; } }
+  .nav__btn-container:active, .nav__btn-container:focus {
+    outline: none; }
   .nav__btn {
     width: 1.875rem;
     height: 0.125rem;
@@ -187,6 +176,8 @@ a:active {
     left: 0.125rem;
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out; }
+  .nav__btn:active, .nav__btn:focus {
+    outline: none; }
   .nav__btn-container.open .nav__btn {
     -webkit-transform: translateX(1.875rem);
             transform: translateX(1.875rem);
@@ -229,7 +220,6 @@ a:active {
     text-align: center;
     color: #ffffe0;
     background: linear-gradient(45deg, #232526, #414345);
-    border-bottom: 1px solid #ffffe0;
     -webkit-transition: opacity 0.3s ease-in, -webkit-transform 0.5s ease-in-out;
     transition: opacity 0.3s ease-in, -webkit-transform 0.5s ease-in-out;
     transition: opacity 0.3s ease-in, transform 0.5s ease-in-out;
@@ -257,6 +247,8 @@ a:active {
       width: 90%; } }
   .nav .active {
     font-weight: 500; }
+  .nav__link:focus {
+    outline: 3px dotted #ffffe0; }
 
 /* --- END NAVBAR --- */
 /* --- START HERO PAGE --- */
@@ -328,8 +320,7 @@ a:active {
   .hero__btn:hover {
     background-color: #ffffe0;
     -webkit-box-shadow: 0 0 5px #ffffe0;
-            box-shadow: 0 0 5px #ffffe0; }
-  .hero__btn:hover a {
+            box-shadow: 0 0 5px #ffffe0;
     color: #343a40; }
   .hero__sub-headline-container {
     text-align: center; }
@@ -452,6 +443,7 @@ a:active {
 /* --- END MODELL SECTION --- */
 /* --- START ANGEBOTE SECTION --- */
 .angebote {
+  position: relative;
   width: 100vw;
   padding-top: 4rem;
   background-image: url(../images/stones.jpg);
@@ -482,7 +474,8 @@ a:active {
     color: #ffffe0;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    text-shadow: 0 0 10px #343a40; }
+    padding: 0.5em;
+    z-index: 1; }
   .angebote .flex-container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -498,7 +491,8 @@ a:active {
     margin-bottom: 3rem;
     -webkit-box-shadow: 0 10px 25px black;
             box-shadow: 0 10px 25px black;
-    position: relative; }
+    position: relative;
+    z-index: 1; }
     @media only screen and (min-width: 62.5rem) {
       .angebote .flex-container {
         -webkit-box-orient: horizontal;
@@ -568,6 +562,16 @@ a:active {
     width: 100%;
     display: block; }
 
+.angebote::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0; }
+
 /* --- END ANGEBOTE SECTION --- */
 /* --- START ABOUT SECTION --- */
 .about {
@@ -591,7 +595,8 @@ a:active {
     color: #ffffe0;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    text-shadow: 0 0 10px linear-gradient(45deg, #232526, #414345); }
+    text-shadow: 0 0 10px linear-gradient(45deg, #232526, #414345);
+    z-index: 1; }
   .about__content-container {
     background: linear-gradient(45deg, #232526, #414345); }
     @media only screen and (min-width: 46.875rem) {
