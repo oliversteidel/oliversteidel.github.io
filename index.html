@@ -1,1 +1,394 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet"><link rel="icon" type="image/png" sizes="32x32" href="../src/assets/favicon-32x32.png"><title>Frontend Mentor | Todo app</title><link href="/css/app.5606768c.css" rel="preload" as="style"><link href="/js/app.9c18695a.js" rel="preload" as="script"><link href="/js/chunk-vendors.eaf6a070.js" rel="preload" as="script"><link href="/css/app.5606768c.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but todo-app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script src="/js/chunk-vendors.eaf6a070.js"></script><script src="/js/app.9c18695a.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="robots" content="index, follow">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Raleway:wght@300;400&display=swap"
+        rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://kit.fontawesome.com/949640df8e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Sally Photography Hochzeitsfotografie und mehr</title>
+</head>
+
+<body>
+
+    <!-- ##### START LOGO ##### -->
+
+    <div class="logo-container flex ai-c jc-c">
+        <img src="images/logo/logo_sally.png" alt="logo von sally photography" class="logo__img">
+    </div>
+    <div class="contact-head flex ai-c">        
+        <a href="mailto:"><i class="far fa-envelope"></i></a>
+        <a href="http://"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <!-- ##### END LOGO ##### -->
+
+    <!-- ##### START BURGER MENU ##### -->
+
+    <div class="burger-menu hide-on-large flex-col ai-c jc-c">
+        <div class="burger-menu__line burger-menu__line--top"></div>
+        <div class="burger-menu__line burger-menu__line--middle"></div>
+        <div class="burger-menu__line burger-menu__line--bottom"></div>
+    </div>
+
+    <!-- ##### START BURGER MENU ##### -->
+
+    <div class="container flex">
+        <div class="nav-container flex ai-c jc-c">
+
+
+            <!-- ##### START NAV ##### -->
+
+            <nav class="nav flex ai-c jc-c">
+                <div class="nav__wrapper flex-col">
+                    <div class="nav__link-wrapper">
+                        <a href="#hero" class="nav__link nav__link--hero link-up">Home</a>
+                        <a href="#hero" class="bottom">Home</a>
+                    </div>
+                    <div class="nav__link-wrapper">
+                        <a href="#weddings" class="nav__link nav__link--weddings link-up">Weddings</a>
+                        <a href="#weddings" class="bottom">Weddings</a>
+                    </div>
+                    <div class="nav__link-wrapper">
+                        <a href="#portraits" class="nav__link nav__link--portraits link-up">Portraits</a>
+                        <a href="#portraits" class="bottom">Portraits</a>
+                    </div>
+                    <div class="nav__link-wrapper">
+                        <a href="#lifestyle" class="nav__link nav__link--lifestyle link-up">Lifestyle</a>
+                        <a href="#lifestyle" class="bottom">Lifestyle</a>
+                    </div>
+                    <!-- <div class="nav__link-wrapper">
+                        <a href="#events" class="nav__link nav__link--events link-up">Events</a>
+                        <a href="#events" class="bottom">Events</a>
+                    </div> -->
+                    <div class="nav__link-wrapper">
+                        <a href="#about" class="nav__link nav__link--about link-up">About</a>
+                        <a href="#about" class="bottom">About</a>
+                    </div>
+                    <div class="nav__link-wrapper">
+                        <a href="#gallery" class="nav__link nav__link--gallery link-up">Gallery</a>
+                        <a href="#gallery" class="bottom">Gallery</a>
+                    </div>
+                    <div class="nav__link-wrapper">
+                        <a href="#contact" class="nav__link nav__link--contact link-up">Contact</a>
+                        <a href="#contact" class="bottom">Contact</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- ##### END NAV ##### -->
+
+        </div>
+        <main>
+
+            <!-- ##### START HERO ##### -->
+
+
+            <section class="hero flex-col ai-c jc-c" id="hero">
+                <h1 class="hero__headline">Momente gehen,<br> Bilder bleiben</h1>
+                <div class="hero__slider flex jc-c">
+                    <img src="images/slider/slider-img1.jpeg" alt="" class="slider__img img1 pos1">
+                    <img src="images/slider/slider-img2.jpeg" alt="" class="slider__img img2 pos2">
+                    <img src="images/slider/slider-img3.jpeg" alt="" class="slider__img img3 pos3">
+                    <img src="images/slider/slider-img4.jpeg" alt="" class="slider__img img4 pos4">
+                    <img src="images/slider/slider-img5.jpeg" alt="" class="slider__img img5 pos5">
+                </div>
+
+            </section>
+
+            <!-- ##### END HERO ##### -->
+
+            <!-- ##### START SECTION WEDDINGS ##### -->
+
+            <section class="weddings flex-col ai-c" id="weddings">
+                <h2 class="weddings__headline headline--section">Weddings</h2>
+                <div class="weddings__img-container">
+
+                    <img class="weddings__img--left upright" src="images/wedding/wed-jj-park.jpeg" alt="">
+
+                    <img class="weddings__img--middle across" src="images/wedding/wed-jj-amt-kiss.jpeg" alt="">
+
+                    <img class="weddings__img--right upright" src="images/wedding/wed-jj-party.jpeg" alt="">
+
+                </div>
+                <p class="text weddings__text weddings__text-1">
+                    Wer kennt es nicht? Man ist in einem einmaligen, besonderen Moment - und ZACK! ist dieser wieder
+                    vorbei,
+                    bevor man überhaupt die Möglichkeit hatte, seine Kamera zu zücken und ihn einzufangen. Er wird zwar
+                    vielleicht immer im Gedächtnis bleiben, aber wäre es nicht schön, ihn ab und zu nochmal vor Augen zu
+                    holen
+                    und sich zurück zu fühlen in den Augenblick und die Gefühle, mit denen man so überwältigt wurde?
+                </p>
+                <div class="weddings__img-container">
+                    <img class="weddings__img2--left upright" src="images/wedding/wed-kiss.jpeg" alt="">
+                    <img class="weddings__img2--middle across" src="images/wedding/wed-kiss-wall.jpeg" alt="">
+                    <img class="weddings__img2--right upright" src="images/wedding/wed-hug.jpeg" alt="">
+                </div>
+                <p class="weddings__text weddings__text-2">
+                    Genau diese Möglichkeit möchte ich Euch, und vor allen den Paaren bei meinen Hochzeits-Shootings in
+                    Köln
+                    und
+                    Umgebung bieten. Der wichtigste Tag im Leben ohne ein paar wunderschöne Erinnerungsbilder ist doch
+                    wirklich
+                    unvorstellbar.<br><br>
+
+                    Welche Wünsche Ihr auch immer habt, ich gehe gerne darauf ein und setze sie um. Ob eine Reportage
+                    vom
+                    ganzen
+                    Tag, oder nur einzelne Bereiche wie das “dressing-on” der Braut, die Zeremonie im Standesamt oder
+                    der
+                    Kirche, ein Brautpaarshooting oder Bilder von Location und Party - bei allem stehe ich Euch
+                    selbsverständlich zur Verfügung!<br><br>
+                    Aber auch wenn Ihr noch nicht so geübt seid mit der Kamera zu interagieren und noch keine klaren
+                    Vorstellungen habt, stehe ich natürlich mit den verschiedensten Ideen parat.
+                </p>
+
+                <button class="cta">Kontakt aufnehmen</button>
+
+                <div class="weddings__img-container flex">
+                    <img class="weddings__img--full" src="images/wedding/wed-jj-carry.jpeg" alt="">
+                </div>
+
+            </section>
+
+            <!-- ##### END SECTION WEDDINGS ##### -->
+
+            <!-- ##### START SECTION PORTRAITS ##### -->
+
+            <section class="portraits flex-col ai-c" id="portraits">
+                <h2 class="portraits__headline headline--section">Portraits</h2>
+                <p class="text portraits__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+                    facilis eveniet voluptate magnam fugiat? Laboriosam vero nobis maiores voluptatum aspernatur?
+                    Impedit molestiae rem nihil tempore? Ab eaque eligendi magni molestiae!
+                </p>
+                <div class="portraits__img-container">
+                    <img src="images/portraits/girl.jpeg" alt="" class="portraits__img portraits__img1">
+                    <img src="images/portraits/guy1.jpeg" alt="" class="portraits__img portraits__img2">
+                    <img src="images/portraits/guy2.jpeg" alt="" class="portraits__img portraits__img3">
+                    <img src="images/portraits/guy3-10.jpeg" alt="" class="portraits__img portraits__img4">
+
+                </div>
+
+                <button class="cta">Kontakt aufnehmen</button>
+            </section>
+
+            <!-- ##### END SECTION PORTRAITS ##### -->
+
+            <!-- ##### START SECTION LIFESTYLE ##### -->
+
+            <section class="lifestyle flex-col ai-c" id="lifestyle">
+                <h2 class="lifestyle__headline headline--section">Lifestyle</h2>
+                <p class="text lifestyle__text">Ihr braucht hochwertige Fotos für Euren Blog?
+                    Eure Follower sehnen sich nach neuen, einzigartigen Bildern?
+                    Dann vereinbaren wir Dein individuelles Fotoshooting.
+                </p>
+                <div class="lifestyle__img-container">
+                    <div class="lifestyle__img-wrapper lifestyle__img-wrapper1">
+                        <img src="images/lifestyle/girl1-1.jpeg" alt="" class="lifestyle__img lifestyle__img1">
+                    </div>
+                    <div class="lifestyle__img-wrapper lifestyle__img-wrapper2">
+                        <img src="images/lifestyle/guy3-8.jpeg" alt="" class="lifestyle__img lifestyle__img2">
+                    </div>
+                    <div class="lifestyle__img-wrapper lifestyle__img-wrapper3">
+                        <img src="images/lifestyle/guy2-3.jpeg" alt="" class="lifestyle__img lifestyle__img3">
+                    </div>
+                    <div class="lifestyle__img-wrapper lifestyle__img-wrapper4">
+                        <img src="images/lifestyle/guy1-3.jpeg" alt="" class="lifestyle__img lifestyle__img4">
+                    </div>
+                    <div class="lifestyle__img-wrapper lifestyle__img-wrapper5">
+                        <img src="images/lifestyle/girl1-2.jpeg" alt="" class="lifestyle__img lifestyle__img5">
+                    </div>
+                    <div class="lifestyle__img-wrapper lifestyle__img-wrapper6">
+                        <img src="images/lifestyle/guy2-1.jpeg" alt="" class="lifestyle__img lifestyle__img6">
+                    </div>
+                    <div class="lifestyle__img-wrapper lifestyle__img-wrapper7">
+                        <img src="images/lifestyle/guy3-4.jpeg" alt="" class="lifestyle__img lifestyle__img7">
+                    </div>
+                    <div class="lifestyle__img-wrapper lifestyle__img-wrapper8">
+                        <img src="images/lifestyle/guy1-6.jpeg" alt="" class="lifestyle__img lifestyle__img8">
+                    </div>
+                </div>
+                <button class="cta">Kontakt aufnehmen</button>
+            </section>
+
+            <!-- ##### END SECTION LIFESTYLE ##### -->
+
+            <!-- ##### START SECTION EVENTS ##### -->
+
+            <!-- <section class="events flex-col ai-c" id="events">
+                <h2 class="events__headline headline--section">Events</h2>
+                <p class="text events__text">Ob Firmenevent, Familienfeier oder Klassentreffen, mit den richtigen Fotos
+                    bleibt Euer Event unvergesslich.
+                </p>
+                <div class="events__img-container">
+                    <img src="images/events/essen.jpeg" alt="" class="events__img events__img1">
+                    <img src="images/events/buffet.jpeg" alt="" class="events__img events__img2">
+                    <img src="images/events/regal.jpeg" alt="" class="events__img events__img3">
+                    <img src="images/events/tischdeko.jpeg" alt="" class="events__img events__img4">
+                    <img src="images/events/buffet2.jpeg" alt="" class="events__img events__img5">
+                    <img src="images/events/wein.jpeg" alt="" class="events__img events__img6">
+                </div>
+                <button class="cta">Kontakt aufnehmen</button>
+            </section> -->
+
+            <!-- ##### END SECTION EVENTS ##### -->
+
+            <!-- ##### START SECTION ABOUT ##### -->
+
+            <section class="about flex-col ai-c" id="about">
+                <h2 class="about__headline headline--section">About</h2>
+                <p class="text about__text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat perspiciatis, officiis et placeat
+                    consectetur, maiores porro sed neque maxime asperiores culpa iusto autem optio fuga temporibus
+                    incidunt libero, dicta eligendi.Unde voluptatibus obcaecati suscipit rem soluta sit, molestiae velit
+                    reiciendis sapiente cum harum eaque? Obcaecati quod tempora expedita assumenda aspernatur
+                    consequuntur optio in sint illum quia, veniam asperiores nisi commodi?
+                </p>
+                <div class="about__img-container">
+                    <img src="images/about/sally-quer.jpeg" alt="" class="about__img">
+                </div>
+                <p class="text about__text2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit, qui?
+                    Voluptas autem in iure quos totam inventore sit dolorum quas, eum fuga deserunt non nulla quidem
+                    minus, reiciendis fugit cumque.
+                </p>
+            </section>
+
+            <!-- ##### END SECTION ABOUT ##### -->
+
+            <!-- ##### START SECTION GALLERY ##### -->
+
+            <section class="gallery" id="gallery">
+                <h2 class="gallery__headline headline--section">Gallery</h2>
+                <div class="gallery__grid-container">
+                    <div class="gallery__img-wrapper gallery__img-wrapper1">
+                        <img src="images/gallery/gal-up-1.jpeg" alt="" class="gallery__img gallery__img1">
+                    </div>
+                    <div class="gallery__img-wrapper gallery__img-wrapper2">
+                        <img src="images/gallery/gal-up-2.jpeg" alt="" class="gallery__img gallery__img2">
+                    </div>
+                    <div class="gallery__img-wrapper gallery__img-wrapper3">
+                        <img src="images/gallery/gal-acr-1.jpeg" alt="" class="gallery__img gallery__img3">
+                    </div>
+
+                    <div class="gallery__img-wrapper gallery__img-wrapper4">
+                        <img src="images/gallery/gal-acr-2.jpeg" alt="" class="gallery__img gallery__img4">
+                    </div>
+                    <div class="gallery__img-wrapper gallery__img-wrapper5">
+                        <img src="images/gallery/gal-up-3.jpeg" alt="" class="gallery__img gallery__img5">
+                    </div>
+                    <div class="gallery__img-wrapper gallery__img-wrapper6">
+                        <img src="images/gallery/gal-up-4.jpeg" alt="" class="gallery__img gallery__img6">
+                    </div>
+
+                    <div class="gallery__img-wrapper gallery__img-wrapper7">
+                        <img src="images/gallery/gal-up-5.jpeg" alt="" class="gallery__img gallery__img7">
+                    </div>
+                    <div class="gallery__img-wrapper gallery__img-wrapper8">
+                        <img src="images/gallery/gal-acr-3.jpeg" alt="" class="gallery__img gallery__img8">
+                    </div>
+                    <div class="gallery__img-wrapper gallery__img-wrapper9">
+                        <img src="images/gallery/gal-up-6.jpeg" alt="" class="gallery__img gallery__img9">
+                    </div>
+
+                    <div class="gallery__img-wrapper gallery__img-wrapper10">
+                        <img src="images/gallery/gal-up-7.jpeg" alt="" class="gallery__img gallery__img10">
+                    </div>
+                    <div class="gallery__img-wrapper gallery__img-wrapper11">
+                        <img src="images/gallery/gal-up-8.jpeg" alt="" class="gallery__img gallery__img11">
+                    </div>
+                    <div class="gallery__img-wrapper gallery__img-wrapper12">
+                        <img src="images/gallery/gal-acr-4.jpeg" alt="" class="gallery__img gallery__img12">
+                    </div>
+
+                    <div class="gallery__img-wrapper gallery__img-wrapper13">
+                        <img src="images/gallery/gal-acr-5.jpeg" alt="" class="gallery__img gallery__img13">
+                    </div>
+                    <div class="gallery__img-wrapper gallery__img-wrapper14">
+                        <img src="images/gallery/gal-up-9.jpeg" alt="" class="gallery__img gallery__img14">
+                    </div>
+                    <div class="gallery__img-wrapper gallery__img-wrapper15">
+                        <img src="images/gallery/gal-up-10.jpeg" alt="" class="gallery__img gallery__img15">
+                    </div>
+
+                    <div class="gallery__img-wrapper gallery__img-wrapper16">
+                        <img src="images/gallery/gal-acr-6.jpeg" alt="" class="gallery__img gallery__img16">
+                    </div>
+                    <div class="gallery__img-wrapper gallery__img-wrapper17">
+                        <img src="images/gallery/gal-up-11.jpeg" alt="" class="gallery__img gallery__img17">
+                    </div>
+                    <div class="gallery__img-wrapper gallery__img-wrapper18">
+                        <img src="images/gallery/gal-up-12.jpeg" alt="" class="gallery__img gallery__img18">
+                    </div>
+
+                    <div class="gallery__img-wrapper gallery__img-wrapper19">
+                        <img src="images/gallery/gal-up-13.jpeg" alt="" class="gallery__img gallery__img19">
+                    </div>
+                    <div class="gallery__img-wrapper gallery__img-wrapper20">
+                        <img src="images/gallery/gal-acr-7.jpeg" alt="" class="gallery__img gallery__img20">
+                    </div>
+                    <div class="gallery__img-wrapper gallery__img-wrapper21">
+                        <img src="images/gallery/gal-up-14.jpeg" alt="" class="gallery__img gallery__img21">
+                    </div>
+
+                    <div class="gallery__img-wrapper gallery__img-wrapper22">
+                        <img src="images/gallery/gal-up-15.jpeg" alt="" class="gallery__img gallery__img22">
+                    </div>
+                    <div class="gallery__img-wrapper gallery__img-wrapper23">
+                        <img src="images/gallery/gal-up-16.jpeg" alt="" class="gallery__img gallery__img23">
+                    </div>
+                    <div class="gallery__img-wrapper gallery__img-wrapper24">
+                        <img src="images/gallery/gal-acr-8.jpeg" alt="" class="gallery__img gallery__img24">
+                    </div>
+
+                    <div class="gallery__img-wrapper gallery__img-wrapper25">
+                        <img src="images/gallery/gal-acr-9.jpeg" alt="" class="gallery__img gallery__img25">
+                    </div>
+                    <div class="gallery__img-wrapper gallery__img-wrapper26">
+                        <img src="images/gallery/gal-up-17.jpeg" alt="" class="gallery__img gallery__img26">
+                    </div>
+                    <div class="gallery__img-wrapper gallery__img-wrapper27">
+                        <img src="images/gallery/gal-up-18.jpeg" alt="" class="gallery__img gallery__img27">
+                    </div>
+
+                    <div class="gallery__img-wrapper gallery__img-wrapper28">
+                        <img src="images/gallery/gal-up-19.jpeg" alt="" class="gallery__img gallery__img28">
+                    </div>
+                    <div class="gallery__img-wrapper gallery__img-wrapper29">
+                        <img src="images/gallery/gal-acr-10.jpeg" alt="" class="gallery__img gallery__img29">
+                    </div>
+                    <div class="gallery__img-wrapper gallery__img-wrapper30">
+                        <img src="images/gallery/gal-up-20.jpeg" alt="" class="gallery__img gallery__img30">
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    <div class="modal closed">
+        <div class="modal__btn--close"></div>
+        <div class="modal__img-wrapper flex jc-c">
+
+        </div>
+        <div class="modal__btn-container flex">
+            <div class="modal__btn--prev"><i class="fas fa-chevron-left"></i></div>
+            <div class="modal__btn--next"><i class="fas fa-chevron-right"></i></div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="js/main.js"></script>  
+    <script src="js/intersectionObserver.js"></script>  
+</body>
+
+</html>
