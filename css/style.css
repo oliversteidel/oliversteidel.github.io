@@ -697,6 +697,23 @@ section {
   grid-column: 4/5;
   grid-row: 10/11; }
 
+.footer__headline {
+  margin-bottom: 2rem; }
+
+.footer__mail-link {
+  font-family: "Raleway", sans-serif !important;
+  font-size: 1.5rem;
+  color: #a26952;
+  margin-bottom: 1rem; }
+
+.footer__links-container {
+  color: #a26952;
+  font-size: 2rem;
+  margin-bottom: 2rem; }
+
+.footer .fa-facebook-square {
+  margin-left: 1em; }
+
 .modal {
   width: 100vw;
   position: fixed;
