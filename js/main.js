@@ -27,6 +27,7 @@ $(document).ready(function () {
             burgerClose();
             navOpen = false;
         }
+        return true;
     });
 
     //close nav when link is clicked
@@ -36,6 +37,7 @@ $(document).ready(function () {
             burgerClose();
             navOpen = false;
         }
+        return true;
     })
 
     // $('.nav__link-wrapper').mouseout(function() {
@@ -143,6 +145,7 @@ $(document).ready(function () {
         var img = $(this).attr("src");
         setImg(img, getImgRatio(img), "nextImg");
         openModal();
+        return true;
     });
 
     $('.modal__btn--next').click(function () {
@@ -150,6 +153,7 @@ $(document).ready(function () {
             imgPos++;
             nextImg(imgPos, "nextImg");
         }
+        return true;
     });
 
     $('.modal__btn--prev').click(function () {
@@ -157,6 +161,7 @@ $(document).ready(function () {
             imgPos--;
             nextImg(imgPos, "prevImg");
         }
+        return true;
     });
 
     // hide modal buttons on click
@@ -172,6 +177,7 @@ $(document).ready(function () {
             $('.modal__btn--prev').css('visibility', 'visible');
             buttonsDisabled = false;
         }
+        return true;
     });
 
     modalCloseBtn.click(() => {
@@ -185,7 +191,8 @@ $(document).ready(function () {
             imgPos++;
             nextImg(imgPos, "nextImg");
         }        
-        console.log('swipeleft');        
+        console.log('swipeleft');  
+        return true;      
     });
 
     imgWrapper.on('swiperight', function() {
@@ -194,6 +201,7 @@ $(document).ready(function () {
             nextImg(imgPos, "prevImg");
         }
         console.log('swiperight');
+        return true;
     });
 
     // nav scroll to section
@@ -209,12 +217,9 @@ $(document).ready(function () {
     }
 
     $('.nav__link-wrapper').click(function() {
-        let el = $(this).children().first().attr('href');
-        console.log($(this).children().first());
+        let el = $(this).children().first().attr('href');        
         let elWrapped = $(el);
-
         scrollToSection(elWrapped, 100);
-
         return true;
     })
 
