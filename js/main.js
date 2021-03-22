@@ -26,8 +26,7 @@ $(document).ready(function () {
             gsap.to(".nav-container", { duration: 0.75, ease: "expo.in", x: '-100%' });
             burgerClose();
             navOpen = false;
-        }
-        return true;
+        }        
     });
 
     //close nav when link is clicked
@@ -36,8 +35,7 @@ $(document).ready(function () {
             gsap.to(".nav-container", { duration: 0.75, ease: "expo.out", x: '-100%' });
             burgerClose();
             navOpen = false;
-        }
-        return true;
+        }        
     })
 
     // $('.nav__link-wrapper').mouseout(function() {
@@ -144,24 +142,21 @@ $(document).ready(function () {
 
         var img = $(this).attr("src");
         setImg(img, getImgRatio(img), "nextImg");
-        openModal();
-        return true;
+        openModal();       
     });
 
     $('.modal__btn--next').click(function () {
         if (imgPos < galleryImgArr.length - 1) {
             imgPos++;
             nextImg(imgPos, "nextImg");
-        }
-        return true;
+        }        
     });
 
     $('.modal__btn--prev').click(function () {
         if (imgPos >= 1) {
             imgPos--;
             nextImg(imgPos, "prevImg");
-        }
-        return true;
+        }        
     });
 
     // hide modal buttons on click
@@ -176,54 +171,11 @@ $(document).ready(function () {
             $('.modal__btn--next').css('visibility', 'visible');
             $('.modal__btn--prev').css('visibility', 'visible');
             buttonsDisabled = false;
-        }
-        return true;
+        }        
     });
 
     modalCloseBtn.click(() => {
         closeModal();
         imgWrapper.empty();
-    });
-
-    // modal swipe to change img
-    imgWrapper.on('swipeleft', function() {
-        if (imgPos < galleryImgArr.length - 1) {
-            imgPos++;
-            nextImg(imgPos, "nextImg");
-        }        
-        console.log('swipeleft');  
-        return true;      
-    });
-
-    imgWrapper.on('swiperight', function() {
-        if (imgPos >= 1) {
-            imgPos--;
-            nextImg(imgPos, "prevImg");
-        }
-        console.log('swiperight');
-        return true;
-    });
-
-    // nav scroll to section
-
-    const scrollToSection = (element, navheight) => {
-        let offset = element.offset();
-        let offsetTop = offset.top;
-        let totalScoll = offsetTop - navheight;
-
-        $('body,html').animate({
-            scrollTop: totalScoll
-        }, 500);
-    }
-
-    $('.nav__link-wrapper').click(function() {
-        let el = $(this).children().first().attr('href');        
-        let elWrapped = $(el);
-        scrollToSection(elWrapped, 100);
-        return true;
-    })
-
-
-
-    
+    });    
 });
