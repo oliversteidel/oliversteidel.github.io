@@ -182,37 +182,7 @@ $(document).ready(function () {
         imgWrapper.empty();
     });
 
-    // swipe gallery images
-
-    // let mouseStart = 0;
-    // let mouseEnd = 0;
-    // let mouseDirection = 0;
-
-    // $('body').mousedown(function (event) {
-    //     if (modalOpen) {
-    //         event.preventDefault();
-    //         mouseStart = event.pageX;
-    //     }
-    // });
-
-    // $('body').mouseup(function (event) {
-    //     if (modalOpen) {
-    //         mouseEnd = event.pageX;
-    //         mouseDirection = mouseStart - mouseEnd;
-
-    //         if (mouseDirection > 0 && mouseDirection > 50) {
-    //             if (imgPos < galleryImgArr.length - 1) {
-    //                 imgPos++;
-    //                 nextImg(imgPos, "nextImg");
-    //             }
-    //         } else if (mouseDirection < 0 && mouseDirection < -50) {
-    //             if (imgPos >= 1) {
-    //                 imgPos--;
-    //                 nextImg(imgPos, "prevImg");
-    //             }
-    //         }
-    //     }
-    // });
+    // swipe gallery images on mobile    
 
     document.addEventListener('touchstart', handleTouchStart, false);
     document.addEventListener('touchmove', handleTouchMove, false);
@@ -248,6 +218,7 @@ $(document).ready(function () {
                 }
             }
         }
+        // if swip up & down is needed
         // } else {
         //     if (yDiff > 0 && modalOpen) {
         //         /* up swipe */
@@ -260,5 +231,16 @@ $(document).ready(function () {
         yDown = null;
     };
 
+    // scroll to section animation
+
+    $('.nav__link-wrapper').click(function (event) {
+        event.preventDefault();
+        let target = $(this).children().first().attr('href');        
+        $('html,body').animate({            
+            scrollTop: $(target).offset().top - 100
+        }, 500);
+    });
 
 });
+
+
