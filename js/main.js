@@ -26,7 +26,7 @@ $(document).ready(function () {
             gsap.to(".nav-container", { duration: 0.75, ease: "expo.in", x: '-100%' });
             burgerClose();
             navOpen = false;
-        }        
+        }
     });
 
     //close nav when link is clicked
@@ -35,7 +35,7 @@ $(document).ready(function () {
             gsap.to(".nav-container", { duration: 0.75, ease: "expo.out", x: '-100%' });
             burgerClose();
             navOpen = false;
-        }        
+        }
     })
 
     // $('.nav__link-wrapper').mouseout(function() {
@@ -145,74 +145,120 @@ $(document).ready(function () {
 
         var img = $(this).attr("src");
         setImg(img, getImgRatio(img), "nextImg");
-        openModal();       
+        openModal();
     });
 
     $('.modal__btn--next').click(function () {
         if (imgPos < galleryImgArr.length - 1) {
             imgPos++;
             nextImg(imgPos, "nextImg");
-        }        
+        }
     });
 
     $('.modal__btn--prev').click(function () {
         if (imgPos >= 1) {
             imgPos--;
             nextImg(imgPos, "prevImg");
-        }        
+        }
     });
 
     // hide modal buttons on click
     $('.modal__img-wrapper').click(() => {
-        if(!buttonsDisabled) {
+        if (!buttonsDisabled) {
             modalCloseBtn.css('visibility', 'hidden');
             $('.modal__btn--next').css('visibility', 'hidden');
             $('.modal__btn--prev').css('visibility', 'hidden');
             buttonsDisabled = true;
-        }else{
+        } else {
             modalCloseBtn.css('visibility', 'visible');
             $('.modal__btn--next').css('visibility', 'visible');
             $('.modal__btn--prev').css('visibility', 'visible');
             buttonsDisabled = false;
-        }        
+        }
     });
 
     modalCloseBtn.click(() => {
         closeModal();
         imgWrapper.empty();
-    });  
+    });
 
     // swipe gallery images
 
-    let mouseStart = 0;
-    let mouseEnd = 0;
-    let mouseDirection = 0;
-    
-    $('body').mousedown(function (event) {
-        if(modalOpen) {
-            event.preventDefault();            
-            mouseStart = event.pageX;            
-        }        
-    });
+    // let mouseStart = 0;
+    // let mouseEnd = 0;
+    // let mouseDirection = 0;
 
-    $('body').mouseup(function (event) {
-        if(modalOpen) {
-            mouseEnd = event.pageX;            
-            mouseDirection = mouseStart - mouseEnd;                        
+    // $('body').mousedown(function (event) {
+    //     if (modalOpen) {
+    //         event.preventDefault();
+    //         mouseStart = event.pageX;
+    //     }
+    // });
 
-            if(mouseDirection > 0 && mouseDirection > 50) {
+    // $('body').mouseup(function (event) {
+    //     if (modalOpen) {
+    //         mouseEnd = event.pageX;
+    //         mouseDirection = mouseStart - mouseEnd;
+
+    //         if (mouseDirection > 0 && mouseDirection > 50) {
+    //             if (imgPos < galleryImgArr.length - 1) {
+    //                 imgPos++;
+    //                 nextImg(imgPos, "nextImg");
+    //             }
+    //         } else if (mouseDirection < 0 && mouseDirection < -50) {
+    //             if (imgPos >= 1) {
+    //                 imgPos--;
+    //                 nextImg(imgPos, "prevImg");
+    //             }
+    //         }
+    //     }
+    // });
+
+    document.addEventListener('touchstart', handleTouchStart, false);
+    document.addEventListener('touchmove', handleTouchMove, false);
+    var xDown = null;
+    var yDown = null;
+
+    function handleTouchStart(evt) {
+        xDown = evt.touches[0].clientX;
+        yDown = evt.touches[0].clientY;
+    };
+
+    function handleTouchMove(evt) {
+        if (!xDown || !yDown) {
+            return;
+        }
+        var xUp = evt.touches[0].clientX;
+        var yUp = evt.touches[0].clientY;
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+
+        if (Math.abs(xDiff) > Math.abs(yDiff)) {/*most significant*/
+            if (xDiff > 0 && modalOpen) {
+                /* left swipe */
                 if (imgPos < galleryImgArr.length - 1) {
                     imgPos++;
                     nextImg(imgPos, "nextImg");
-                }   
-            }else if(mouseDirection < 0 && mouseDirection < -50) {
+                }
+            } else {
+                /* right swipe */
                 if (imgPos >= 1) {
                     imgPos--;
                     nextImg(imgPos, "prevImg");
-                }  
+                }
             }
         }
-    });
-    
-    
+        // } else {
+        //     if (yDiff > 0 && modalOpen) {
+        //         /* up swipe */
+        //     } else {
+        //         /* down swipe */
+        //     }
+        // }
+        /* reset values */
+        xDown = null;
+        yDown = null;
+    };
+
+
 });
